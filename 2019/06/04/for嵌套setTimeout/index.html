@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | XuYongming</title>
+  <title>for嵌套setTimeout | XuYongming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前言for循环嵌套setTimeout问题原因 异步加载+作用域链 问题在理解闭包过程中，有一示例关于for循环嵌套setTimeout 1234567&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;  for(var i=1;i&amp;lt;10;i++)&amp;#123;    setTimeout(function()&amp;#123;      console.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/hello-world/index.html">
+<meta property="og:title" content="for嵌套setTimeout">
+<meta property="og:url" content="http://yoursite.com/2019/06/04/for嵌套setTimeout/index.html">
 <meta property="og:site_name" content="XuYongming">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言for循环嵌套setTimeout问题原因 异步加载+作用域链 问题在理解闭包过程中，有一示例关于for循环嵌套setTimeout 1234567&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;  for(var i=1;i&amp;lt;10;i++)&amp;#123;    setTimeout(function()&amp;#123;      console.">
 <meta property="og:locale" content="中文">
-<meta property="og:updated_time" content="2019-07-23T13:01:13.133Z">
+<meta property="og:updated_time" content="2019-07-24T03:59:33.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="for嵌套setTimeout">
+<meta name="twitter:description" content="前言for循环嵌套setTimeout问题原因 异步加载+作用域链 问题在理解闭包过程中，有一示例关于for循环嵌套setTimeout 1234567&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;  for(var i=1;i&amp;lt;10;i++)&amp;#123;    setTimeout(function()&amp;#123;      console.">
   
     <link rel="alternative" href="/atom.xml" title="XuYongming" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -154,40 +154,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-for嵌套setTimeout" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      for嵌套setTimeout
     </h1>
   
 
         
-        <a href="/2019/07/24/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-24T01:28:30.251Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
+        <a href="/2019/06/04/for嵌套setTimeout/" class="archive-article-date">
+  	<time datetime="2019-06-04T02:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>for循环嵌套setTimeout问题原因 异步加载+作用域链</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在理解闭包过程中，有一示例关于for循环嵌套setTimeout</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">  for(var i=1;i&lt;10;i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">      console.log(i);</span><br><span class="line">    &#125;,i*100);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>经过测试，其输出结果为10个10，和脑海中的结果完全不同。</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><h5 id="1-异步加载"><a href="#1-异步加载" class="headerlink" title="1.异步加载"></a>1.异步加载</h5><p>JS的执行机制为单线程，for循环在主线程同步执行，而setTimeout是异步代码，在任务队列中等待执行。当主线程中的同步代码执行完成后，执行任务队列中的异步代码。</p>
+<h5 id="2-作用域链"><a href="#2-作用域链" class="headerlink" title="2.作用域链"></a>2.作用域链</h5><p>当结束同步代码，开始setTimeout时，需要一个变量i，而执行中的作用域中无变量i，这时就将之前创建这个函数的作用域当作当前作用域，创建这个函数的作用域就是全局作用域，也就是找到了for循环中i。这时同步已经执行完毕，i已经变为10，因此setTimeout找到的i为10.</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用立即执行函数IIFE，创建新的作用域，将i作为参数传入，变成局部变量j，使每次for循环进来立即执行代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">  for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">    (function(j)&#123;</span><br><span class="line">      setTimeout(function()&#123;</span><br><span class="line">        console.log(j);</span><br><span class="line">      &#125;,j*100);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -266,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/24/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/04/for嵌套setTimeout/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,6 +275,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/06/13/this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          this
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/01/闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
