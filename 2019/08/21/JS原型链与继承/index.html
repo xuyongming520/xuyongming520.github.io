@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>网易笔试总结 | XuYongming</title>
+  <title>JS原型链与继承 | XuYongming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在几天前参加了网易的笔试。可以说是给了当头一棒。当然现在的当头一棒对于我来说是好的，让我认识到了很多的不足。总结一下，这次面试复习过程中和面试时遇到的知识点和问题.">
+  <meta name="description" content="构造函数,原型和实例的关系:每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针. 实例是通过构造函数创建的。实例一创造出来就具有constructor属性（指向构造函数）和proto属性（指向原型对象）， 构造函数中有一个prototype属性，这个属性是一个指针，指向它的原">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网易笔试总结">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/网易笔试总结/index.html">
+<meta property="og:title" content="JS原型链与继承">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/JS原型链与继承/index.html">
 <meta property="og:site_name" content="XuYongming">
-<meta property="og:description" content="在几天前参加了网易的笔试。可以说是给了当头一棒。当然现在的当头一棒对于我来说是好的，让我认识到了很多的不足。总结一下，这次面试复习过程中和面试时遇到的知识点和问题.">
+<meta property="og:description" content="构造函数,原型和实例的关系:每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针. 实例是通过构造函数创建的。实例一创造出来就具有constructor属性（指向构造函数）和proto属性（指向原型对象）， 构造函数中有一个prototype属性，这个属性是一个指针，指向它的原">
 <meta property="og:locale" content="中文">
-<meta property="og:updated_time" content="2019-08-06T12:06:50.183Z">
+<meta property="og:updated_time" content="2019-08-24T03:44:52.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网易笔试总结">
-<meta name="twitter:description" content="在几天前参加了网易的笔试。可以说是给了当头一棒。当然现在的当头一棒对于我来说是好的，让我认识到了很多的不足。总结一下，这次面试复习过程中和面试时遇到的知识点和问题.">
+<meta name="twitter:title" content="JS原型链与继承">
+<meta name="twitter:description" content="构造函数,原型和实例的关系:每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针. 实例是通过构造函数创建的。实例一创造出来就具有constructor属性（指向构造函数）和proto属性（指向原型对象）， 构造函数中有一个prototype属性，这个属性是一个指针，指向它的原">
   
     <link rel="alternative" href="/atom.xml" title="XuYongming" type="application/atom+xml">
   
@@ -154,49 +154,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-网易笔试总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS原型链与继承" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      网易笔试总结
+      JS原型链与继承
     </h1>
   
 
         
-        <a href="/2019/08/06/网易笔试总结/" class="archive-article-date">
-  	<time datetime="2019-08-06T10:39:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+        <a href="/2019/08/21/JS原型链与继承/" class="archive-article-date">
+  	<time datetime="2019-08-21T02:29:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在几天前参加了网易的笔试。可以说是给了当头一棒。当然现在的当头一棒对于我来说是好的，让我认识到了很多的不足。总结一下，这次面试复习过程中和面试时遇到的知识点和问题.</p>
+        <h3 id="构造函数-原型和实例的关系"><a href="#构造函数-原型和实例的关系" class="headerlink" title="构造函数,原型和实例的关系:"></a>构造函数,原型和实例的关系:</h3><p>每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针.</p>
+<p>实例是通过构造函数创建的。实例一创造出来就具有constructor属性（指向构造函数）和proto属性（指向原型对象），</p>
+<p>构造函数中有一个prototype属性，这个属性是一个指针，指向它的原型对象。</p>
+<p>原型对象内部也有一个指针（constructor属性）指向构造函数</p>
 <a id="more"></a>
 
-<h2 id="复习时遇到的新知识点"><a href="#复习时遇到的新知识点" class="headerlink" title="复习时遇到的新知识点"></a>复习时遇到的新知识点</h2><p>我在算法方面已经很久没有接触了，这次复习算是一场恶补。这是我在复习2019年网易前端面试题时遇到的问题，答案解析给的非常好的总结。</p>
-<h4 id="1-有关树"><a href="#1-有关树" class="headerlink" title="1.有关树"></a>1.有关树</h4><p>树的基本术语：<br>节点：表示树中的元素，包括数据项及若干指向某子树的分支<br>节点的度：节点拥有的子树数<br>叶子：度为0的节点，又称为终端节点<br>孩子：节点子树的根称为该节点的孩子，该节点称为其孩子节点的双亲<br>兄弟：同一双亲的孩子<br>树的度：一棵树中各节点的度的最大值<br>节点的层次：从根节点算起，根为第一层，它的孩子为第二层……<br>深度：树中节点的最大层次<br>森林：m(m&gt;=0)棵互不相交的树的集合</p>
-<h4 id="2-TCP和UDP的定义和区别"><a href="#2-TCP和UDP的定义和区别" class="headerlink" title="2.TCP和UDP的定义和区别"></a>2.TCP和UDP的定义和区别</h4><p><strong>TCP的优点： </strong><br>可靠，稳定 TCP的可靠体现在TCP在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源。<br><br><strong>TCP的缺点：  </strong><br>慢，效率低，占用系统资源高，易被攻击 TCP在传递数据之前，要先建连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。 而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。<br><strong>UDP的优点：</strong><br>快，比TCP稍安全 UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，UDP是一个无状态的传输协议，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。但UDP也是无法避免攻击的，比如：UDP Flood攻击……<br><br><strong>UDP的缺点: </strong><br>不可靠，不稳定 因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。 基于上面的优缺点，那么： 什么时候应该使用TCP： 当对网络通讯质量有要求的时候，比如：整个数据要准确无误的传递给对方，这往往用于一些要求可靠的应用，比如HTTP、HTTPS、FTP等传输文件的协议，POP、SMTP等邮件传输的协议。 在日常生活中，常见使用TCP协议的应用如下： 浏览器，用的HTTP FlashFXP，用的FTP Outlook，用的POP、SMTP Putty，用的Telnet、SSH QQ文件传输 ………… 什么时候应该使用UDP： 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频 TFTP ……<br><br><strong>TCP与UDP区别总结：</strong><br>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接<br>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付<br>3、TCP面向字节流，实际上是TCP把数据看成一连串无结构的字节流;UDP是面向报文的UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用，如IP电话，实时视频会议等）<br>4、每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信<br>5、TCP首部开销20字节;UDP的首部开销小，只有8个字节<br>6、TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道</p>
-<h4 id="3-进程与线程"><a href="#3-进程与线程" class="headerlink" title="3.进程与线程"></a>3.进程与线程</h4><p><strong>进程与线程区别</strong><br>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.<br>2) 线程的划分尺度小于进程，使得多线程程序的并发性高。<br>3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。<br>4) 线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。<br>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
-<p>C: 一般情况下，线程在其主体函数退出的时候会自动终止，但同时也可以因为接收到另一个线程发来的终止（取消）请求而强制终止。<br>    同时，一个线程可以创建另一个线程。线程是不分父子线程的，一个线程创建另一个线程，尽管第一个线程已经结束，第二个线程还是可以照常运行。</p>
-<p><strong>线程的属性：</strong><br>①轻型实体。它不拥有系统资源，只是有一点必不可少的、能保证独立运行的资源。<br>②独立调度和分派的基本单位。在多线程OS中，线程是独立运行的基本单位，因而也是独立调度和分派的基本单位，但由于线程很轻，故线程的切换非常迅速且开销小。<br>③可并发执行。在一个进程中的多个线程之间可以并发执行，甚至允许在一个进程中的所有线程都能并发执行；同样，不同进程中的线程也能并发执行。<br>④共享进程资源。</p>
-<h4 id="4-HASH算法的应用"><a href="#4-HASH算法的应用" class="headerlink" title="4.HASH算法的应用"></a>4.HASH算法的应用</h4><p>Hash算法在信息安全方面的应用主要体现在以下的3个方面：<br><strong>（1)文件校验</strong><br>我们比较熟悉的校验算法有奇偶校验和CRC校验，这2种校验并没有抗数据篡改的能力，它们一定程度上能检测并纠正数据传输中的信道误码，但却不能防止对数据的恶意破坏。<br>MD5 Hash算法的”数字指纹”特性，使它成为目前应用最广泛的一种文件完整性校验和(Checksum)算法，不少Unix系统有提供计算md5 checksum的命令。<br><strong>（2)数字签名</strong><br>Hash 算法也是现代密码体系中的一个重要组成部分。由于非对称算法的运算速度较慢，所以在数字签名协议中，单向散列函数扮演了一个重要的角色。对 Hash 值，又称”数字摘要”进行数字签名，在统计上可以认为与对文件本身进行数字签名是等效的。而且这样的协议还有其他的优点。<br><strong>（3) 鉴权协议</strong><br>如下的鉴权协议又被称作挑战–认证模式：在传输信道是可被侦听，但不可被篡改的情况下，这是一种简单而安全的方法。以上就是一些关于hash以及其相关的一些基本预备知识。</p>
-<h4 id="5-a-link-a-visited-a-hover-a-active-分别是什么意思"><a href="#5-a-link-a-visited-a-hover-a-active-分别是什么意思" class="headerlink" title="5.a:link,a:visited,a:hover,a:active 分别是什么意思?"></a>5.a:link,a:visited,a:hover,a:active 分别是什么意思?</h4><ol>
-<li>link:连接平常的状态</li>
-<li>visited:连接被访问过之后</li>
-<li>hover:鼠标放到连接上的时候</li>
-<li>active:连接被按下的时候</li>
-</ol>
-<p><strong>正确顺序：</strong>“爱恨原则”（LoVe/HAte），即四种伪类的首字母:LVHA。再重复一遍正确的顺序：a:link、a:visited、a:hover、a:active .</p>
-<p>因为当鼠标经过未访问的链接，会同时拥有a:link、a:hover两种属性，a:link离它最近，所以它优先满足a:link，而放弃a:hover的重复定义。当鼠标经过已经访问过的链接，会同时拥有a:visited、a:hover两种属性，a:visited离它最近，所以它优先满足a:visited，而放弃a:hover的重复定义。究其原因，是css的就近原则“惹的祸”。</p>
-<h4 id="6-JSON"><a href="#6-JSON" class="headerlink" title="6.JSON"></a>6.JSON</h4><p>JSON：js的对象表示法（JS Object Notation）<br>JSON：存储和交换文本信息的语法，类似XML<br>JSON比XML更小、更快、更易解析</p>
-<p><strong>JSON &amp; XML</strong><br>可读性：差不多，XML可读性更好一些<br>可扩展性：差不多<br>编码难度：JSON更容易<br>解析（码）难度：XML很难，JSON难度几乎为0<br>流行度：XML更流行。不过，在Ajax中，几乎都用JSON<br>数据体积：JSON体积更小，传输速度更快<br>数据交互：JSON和JS的交互更加方便，更容易解析处理，更好的数据交互<br>数据描述：XML对数据的描述更好<br>传输速度：JSON的速度远远快于XML</p>
-<h4 id="7-SVG"><a href="#7-SVG" class="headerlink" title="7.SVG"></a>7.SVG</h4><p>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)<br>SVG 用来定义用于网络的基于矢量的图形<br>SVG 使用 XML 格式定义图形<br>SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失<br>SVG 是万维网联盟的标准<br>SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体</p>
-<h2 id="考试时遇到的情况"><a href="#考试时遇到的情况" class="headerlink" title="考试时遇到的情况"></a>考试时遇到的情况</h2><p>考试时，发现自己的能力的确还差很多。做题的时候浪费了很多时间，最后一题都没有时间写。但也找到了自己的不足，希望以后的自己能走的更好。</p>
-<p>PS：希望自己以后编程题数组输出的时候一定不要忘记放在循环里！！！！！</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>如果试图引用对象(实例instance)的某个属性,会首先在对象内部寻找该属性,直至找不到,然后才在该对象的原型(instance.prototype)里去找这个属性.</p>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><p>所谓”构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p>
+<p>猫的原型对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name=name;</span><br><span class="line"></span><br><span class="line">　　　　this.color=color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+
+<p>生成实例对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.name); // 大毛</span><br><span class="line"></span><br><span class="line">　　alert(cat1.color); // 黄色</span><br></pre></td></tr></table></figure>
+
+<p>这时cat1和cat2会自动含有一个<strong>constructor</strong>属性，指向它们的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.constructor == Cat); //true</span><br><span class="line"></span><br><span class="line">　　alert(cat2.constructor == Cat); //true</span><br></pre></td></tr></table></figure>
+
+<p>Javascript还提供了一个<strong>instanceof</strong>运算符，验证原型对象与实例对象之间的关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1 instanceof Cat); //true</span><br><span class="line"></span><br><span class="line">　　alert(cat2 instanceof Cat); //true</span><br></pre></td></tr></table></figure>
+
+<h3 id="prototype属性"><a href="#prototype属性" class="headerlink" title="prototype属性"></a>prototype属性</h3><p>Javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。</p>
+<p>这意味着，我们可以把那些不变的属性和方法，直接定义在prototype对象上</p>
+<p>由于所有的实例对象共享同一个prototype对象，那么从外界看起来，prototype对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name = name;</span><br><span class="line"></span><br><span class="line">　　　　this.color = color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.type = &quot;猫科动物&quot;;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.eat = function()&#123;alert(&quot;吃老鼠&quot;)&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>生成实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.type); // 猫科动物</span><br><span class="line"></span><br><span class="line">　　cat1.eat(); // 吃老鼠</span><br></pre></td></tr></table></figure>
+
+<p>这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.eat == cat2.eat); //true</span><br></pre></td></tr></table></figure>
+
+<h3 id="Prototype模式的验证方法"><a href="#Prototype模式的验证方法" class="headerlink" title="Prototype模式的验证方法"></a>Prototype模式的验证方法</h3><h5 id="1-isPrototypeOf"><a href="#1-isPrototypeOf" class="headerlink" title="1.isPrototypeOf()"></a>1.isPrototypeOf()</h5><p>用来判断，某个proptotype对象和某个实例之间的关系。</p>
+<h5 id="2-hasOwnProperty"><a href="#2-hasOwnProperty" class="headerlink" title="2.hasOwnProperty()"></a>2.hasOwnProperty()</h5><p>每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。</p>
+<h5 id="3-in运算符"><a href="#3-in运算符" class="headerlink" title="3.in运算符"></a>3.in运算符</h5><p>in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性。</p>
+<p>in运算符还可以用来遍历某个对象的所有属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(var prop in cat1) &#123; alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>整篇博客内容主要来源于阮一峰老师，阮一峰老师对其的理解真的很透彻，而且案例以及讲解非常的通俗易懂，还有部分是我在学习过程中搜索到对js原型链与继承非常优秀的总结。</p>
 
       
 
@@ -276,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/06/网易笔试总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/21/JS原型链与继承/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/21/JS原型链与继承/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JS原型链与继承
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/25/作用域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">作用域</div>
+    <a href="/2019/08/06/网易笔试总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网易笔试总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
